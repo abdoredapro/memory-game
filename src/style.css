@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.start-game {
+    background-color: #e74c3ca8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+
+}
+.start-game.diable {
+    display: none;
+}
+.start-game input {
+    padding: 10px;
+    border: 1px solid #2c3e5073;
+    outline: none;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 16px;
+}
+.start-game button {
+    width: 250px;
+    padding: 13px;
+    margin: 10px 0 0 0;
+    outline: none;
+    background-color: #3498db;
+    color: #FFF;
+    font-size: 18px;
+    border: 1px solid #0000001a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.resaults {
+    border: 2px solid #e74c3c;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 21px;
+    flex-flow: row wrap;
+    margin: 10px 0;
+}
+
+.memory-game {
+    width: 100%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 10px;
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 2px;
+}
+.memory-game h3 {
+    display: block;
+}
+.memory-game .card {
+    position: relative;
+    transform-style: preserve-3d;
+    flex: 1 0 200px;
+    border: 2px solid #2196F3;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    box-shadow: 0px 0px 28px -8px rgba(0,0,0,0.75);
+    cursor: pointer;
+    transition: transform .9s;
+}
+.memory-game .card.disabled {
+    pointer-events: none;
+}
+.memory-game .card .front, 
+.memory-game .card .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+.memory-game .card .front {
+    background-color: #2196F3;
+    color: #FFF;
+}
+
+.memory-game .card .front::before {
+    content: '?';
+    font-size: 30px;
+    
+
+}
+.memory-game .card .back {
+    background-color: #ecf0f1;
+    font-size: 25px;
+    transform: rotateY(180deg);
+}
+
+.memory-game .card.fliped,
+.memory-game .card.match {
+    transform: rotateY(180deg);
+}
